@@ -1,5 +1,11 @@
 require "active_support/core_ext/integer/time"
 
+# If you need to set default_url_options globally for URL generation throughout your Rails application
+Rails.application.routes.default_url_options = {
+  host: 'localhost',
+  port: 3000
+}
+
 Rails.application.configure do
   # Allow server to be hosted on any URL
   config.hosts.clear
