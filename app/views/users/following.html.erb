@@ -1,3 +1,9 @@
-hi
-
 <%= render "shared/tabbed_interface", user: @user %>
+
+<h1><%= @user.username %>'s Following</h1>
+
+<div class="list-group">
+  <% @following.each do |leader| %>
+    <%= link_to leader.username, user_path(leader.username), class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
