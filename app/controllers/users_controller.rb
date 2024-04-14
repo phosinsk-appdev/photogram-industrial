@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find_by!(username: params.fetch(:username))
+    
+    @feed_photos = Photo.joins(:owner)
+    .where(users: {id: @user.leaders.select(:id)})
+    .past_week
+    .order(created_at: :desc)
+    
   end
 
   def followers

@@ -1,3 +1,5 @@
-hi
-
 <%= render "shared/tabbed_interface", user: @user %>
+
+<% @feed_photos.each do |photo| %>
+  <%= render "photos/photo", photo: photo %>
+<% end %>
